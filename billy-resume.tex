@@ -1,0 +1,345 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%% Simple LaTeX CV Template %%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% NOTE: If you find that it says                                     %%
+%%                                                                    %%
+%%                           1 of ??                                  %%
+%%                                                                    %%
+%% at the bottom of your first page, this means that the AUX file     %%
+%% was not available when you ran LaTeX on this source. Simply RERUN  %%
+%% LaTeX to get the ``??'' replaced with the number of the last page  %%
+%% of the document. The AUX file will be generated on the first run   %%
+%% of LaTeX and used on the second run to fill in all of the          %%
+%% references.                                                        %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% Document Setup %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Don't like 10pt? Try 11pt or 12pt
+\documentclass[10pt]{article}
+
+% This is a helpful package that puts math inside length specifications
+\usepackage{calc}
+
+% Layout: Puts the section titles on left side of page
+\reversemarginpar
+
+%
+%         PAPER SIZE, PAGE NUMBER, AND DOCUMENT LAYOUT NOTES:
+%
+% The next \usepackage line changes the layout for CV style section
+% headings as marginal notes. It also sets up the paper size as either
+% letter or A4. By default, letter was used. If A4 paper is desired,
+% comment out the letterpaper lines and uncomment the a4paper lines.
+%
+% As you can see, the margin widths and section title widths can be
+% easily adjusted.
+%
+% ALSO: Notice that the includefoot option can be commented OUT in order
+% to put the PAGE NUMBER *IN* the bottom margin. This will make the
+% effective text area larger.
+%
+% IF YOU WISH TO REMOVE THE ``of LASTPAGE'' next to each page number,
+% see the note about the +LP and -LP lines below. Comment out the +LP
+% and uncomment the -LP.
+%
+% IF YOU WISH TO REMOVE PAGE NUMBERS, be sure that the includefoot line
+% is uncommented and ALSO uncomment the \pagestyle{empty} a few lines
+% below.
+%
+
+%% Use these lines for letter-sized paper
+\usepackage[paper=letterpaper,
+            %includefoot, % Uncomment to put page number above margin
+            marginparwidth=1.2in,     % Length of section titles
+            marginparsep=.05in,       % Space between titles and text
+            margin=1in,               % 1 inch margins
+            includemp]{geometry}
+
+%% Use these lines for A4-sized paper
+%\usepackage[paper=a4paper,
+%            %includefoot, % Uncomment to put page number above margin
+%            marginparwidth=30.5mm,    % Length of section titles
+%            marginparsep=1.5mm,       % Space between titles and text
+%            margin=25mm,              % 25mm margins
+%            includemp]{geometry}
+
+%% More layout: Get rid of indenting throughout entire document
+\setlength{\parindent}{0in}
+
+%% This gives us fun enumeration environments. compactitem will be nice.
+\usepackage{paralist}
+
+%% Reference the last page in the page number
+%
+% NOTE: comment the +LP line and uncomment the -LP line to have page
+%       numbers without the ``of ##'' last page reference)
+%
+% NOTE: uncomment the \pagestyle{empty} line to get rid of all page
+%       numbers (make sure includefoot is commented out above)
+%
+\usepackage{fancyhdr,lastpage}
+\pagestyle{fancy}
+\pagestyle{empty}      % Uncomment this to get rid of page numbers
+\fancyhf{}\renewcommand{\headrulewidth}{0pt}
+\fancyfootoffset{\marginparsep+\marginparwidth}
+\newlength{\footpageshift}
+\setlength{\footpageshift}
+          {0.5\textwidth+0.5\marginparsep+0.5\marginparwidth-2in}
+\lfoot{\hspace{\footpageshift}%
+       \parbox{4in}{\, \hfill %
+                    \arabic{page} of \protect\pageref*{LastPage} % +LP
+%                    \arabic{page}                               % -LP
+                    \hfill \,}}
+
+% Finally, give us PDF bookmarks
+\usepackage{color,hyperref}
+\definecolor{darkblue}{rgb}{0.0,0.0,0.3}
+\hypersetup{colorlinks,breaklinks,
+            linkcolor=darkblue,urlcolor=darkblue,
+            anchorcolor=darkblue,citecolor=darkblue}
+
+%%%%%%%%%%%%%%%%%%%%%%%% End Document Setup %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% Helper Commands %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% The title (name) with a horizontal rule under it
+%
+% Usage: \makeheading{name}
+%
+% Place at top of document. It should be the first thing.
+\newcommand{\makeheading}[1]%
+        {\hspace*{-\marginparsep minus \marginparwidth}%
+         \begin{minipage}[t]{\textwidth+\marginparwidth+\marginparsep}%
+                {\large \bfseries #1}\\[-0.15\baselineskip]%
+                 \rule{\columnwidth}{1pt}%
+         \end{minipage}}
+
+% The section headings
+%
+% Usage: \section{section name}
+%
+% Follow this section IMMEDIATELY with the first line of the section
+% text. Do not put whitespace in between. That is, do this:
+%
+%       \section{My Information}
+%       Here is my information.
+%
+% and NOT this:
+%
+%       \section{My Information}
+%
+%       Here is my information.
+%
+% Otherwise the top of the section header will not line up with the top
+% of the section. Of course, using a single comment character (%) on
+% empty lines allows for the function of the first example with the
+% readability of the second example.
+\renewcommand{\section}[2]%
+        {\pagebreak[2]\vspace{1.3\baselineskip}%
+         \phantomsection\addcontentsline{toc}{section}{#1}%
+         \hspace{0in}%
+         \marginpar{
+         \raggedright \scshape #1}#2}
+
+% An itemize-style list with lots of space between items
+\newenvironment{outerlist}[1][\enskip\textperiodcentered
+]%
+        {\begin{itemize}[#1]}{\end{itemize}%
+         \vspace{-.6\baselineskip}}
+
+% An environment IDENTICAL to outerlist that has better pre-list spacing
+% when used as the first thing in a \section
+\newenvironment{lonelist}[1][\enskip\textbullet]%
+        {\vspace{-\baselineskip}\begin{list}{#1}{%
+        \setlength{\partopsep}{0pt}%
+        \setlength{\topsep}{0pt}}}
+        {\end{list}\vspace{-.6\baselineskip}}
+
+% An itemize-style list with little space between items
+\newenvironment{innerlist}[1][\enskip\textperiodcentered
+]%
+        {\begin{compactitem}[#1]}{\end{compactitem}}
+
+% To add some paragraph space between lines.
+% This also tells LaTeX to preferably break a page on one of these gaps
+% if there is a needed pagebreak nearby.
+\newcommand{\blankline}{\quad\pagebreak[2]}
+
+%%%%%%%%%%%%%%%%%%%%%%%% End Helper Commands %%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%% Begin CV Document %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\makeheading{Billy Fung}
+
+
+\section{Contact}
+%
+% NOTE: Mind where the & separators and \\ breaks are in the following
+%       table.
+%
+% ALSO: \rcollength is the width of the right column of the table
+%       (adjust it to your liking; default is 1.85in).
+%
+\newlength{\rcollength}\setlength{\rcollength}{1.85in}%
+%
+\begin{tabular}[t]{@{}p{\textwidth-\rcollength}p{\rcollength}}
+\href{mailto:billy@billyfung.com}{billy@billyfung.com}\\
+
+\end{tabular}
+
+
+\section{Education}
+%
+\href{http://www.ubc.ca/}{\textbf{University of British Columbia}},
+Vancouver, BC, Canada
+\hfill  \textbf{2015}
+\begin{outerlist}
+
+\item[] B.A.Sc. Engineering Physics, Mechatronics specialization
+\end{outerlist}
+
+\section{Skills}
+Python, Javascript, R, PostgreSQL, Docker, Ansible, AWS, GCP, GAMS
+
+%\section{Hobbies}
+%Rock climbing, hiking, bicycling, and photography
+
+\section{Experience}
+\href{http://billyfung.com}{\textbf{Software Consultant}}, Worldwide.
+\begin{outerlist}
+  \item[]
+	\hfill  \textbf{February 2016 to Present}
+\begin{innerlist}
+	\item specialising in backend software development, assisting clients to build up data-driven web applications
+    \item building and supporting Python based web services for a peer to peer electricity retailer
+    \item developing trading and data analytics platform for wholesale electricity trading
+    \item using machine learning to build predictive models around electricity demand and consumption
+    \item managing and maintaining cloud based servers, namely within AWS and GCP
+    \item design, implementation, and deployment of mathematical optimisation models
+\end{innerlist}
+\end{outerlist}
+
+\blankline
+
+\href{http://billyfung.com/dve/}{\textbf{DVE Technologies}}, Vancouver, Canada.
+\begin{outerlist}
+	\item[] \textit{Lead Engineer / Cofounder}
+	\hfill  \textbf{December 2014 to November 2015}
+\begin{innerlist}
+	\item created and developed the company website, along with maintaining the cloud systems
+    \item developed and tested electrical circuits for the prototype device
+    \item aided in refining and optimising of software algorithms to fine tune head tilt gesture detection
+    \item used Solidworks to design the physical enclosure for 3d printing and for plastic injection mold
+\end{innerlist}
+\end{outerlist}
+
+\blankline
+
+
+{\textbf{Blackberry Limited}}, Ontario, Canada.
+\begin{outerlist}
+	\item[] \textit{Reliability Systems Development Intern}
+	\hfill  \textbf{May 2011 to August 2012}
+\begin{innerlist}
+	\item developed and maintained test stations for testing handheld devices involving highly accelerated lifecycle testing and failure mode analysis
+    \item debugged board level electrical errors along with identifying hardware troubleshooting
+    \item performed electrical and mechanical testing of all components within mobile device and was involved in troubleshooting and reporting the results
+    \item qualified supplier manufacturing sites through statistical analysis
+\end{innerlist}
+\end{outerlist}
+
+\blankline
+
+%{\textbf{University of British Columbia, Mechanical Engineering}}, BC, Canada
+%\begin{outerlist}
+%	\item[] \textit{Complex Fluids Lab}
+%	\hfill  \textbf{October 2010 to April 2011}
+%\begin{innerlist}
+%	\item designed and machined an experimental apparatus for testing of two non-Newtonian fluids
+%	\item set up an electromechanical system in order to capture interactions between fluids, and automated data acquisition for further analysis.
+%\end{innerlist}
+%\end{outerlist}
+
+\blankline
+
+%{\textbf{Canfor Pulp and Paper Research and Development Coop}}, BC, Canada
+%\begin{outerlist}
+%	\item[] \textit{Research and Development Lab Technician}
+%	\hfill  \textbf{January 2010 to April 2010}
+%\begin{innerlist}
+%	\item conducted analysis of testing destructive and non-destructive handsheet properties, fibre properties such as fibre length and coarseness, elasticity, viscosity and conductivity
+% \item  monitored the pulp properties from Canfor's pulp lines by simulating the paper-making process,  and testing according to TAPPI standard procedures.
+%    \item worked to automate the data entry process along with experimental testing automation
+%\end{innerlist}
+%\end{outerlist}
+
+
+\section{Projects}
+\begin{innerlist}
+\item \href{http://www.tellmeabout.coffee}{coffee information website}
+\item \href{http://youtu.be/ek3iVSD02Gw}{automatic wireless irrigation system} based on moisture sensor readings
+\item \href{http://youtu.be/H9JlHjWq-NA}{autonomous tape following race car}
+\item \href{http://youtu.be/ddSh_XTtdA0}{automated bicycle turn signal and brake light system}
+\end{innerlist}
+
+\section{Technical Details}
+{\textbf{Database}}
+\begin{innerlist}
+\item extensive experience in scraping data from websites and parsing the data to be stored within a SQL or noSQL database
+\item design and maintaining of PostgreSQL databases, including optimisation and administration roles
+\item very comfortable using raw SQL to query data, or using an ORM wrapper
+\item involved with database design using event triggers, jsonb datatypes, GIN indexing, materialized views, upserting and foreign data wrappers
+\end{innerlist}
+
+\blankline
+
+{\textbf{Web Applications}}
+\begin{outerlist}
+\item[] \textit{Backend}
+\begin{innerlist}
+\item built multiple web applications using the Flask framework, along with appropriate framework extensions mainly for internal admin usage
+\item packages often used are SQLAlchemy, pytest, gunicorn, flask-admin, WTForms
+\item familiarity with a more full featured framework as well, having used Django to build a podcast hosting web application
+\item spent time building REST APIs to serve to frontend frameworks to display visualisations like customised internal analytics dashboard and reporting
+\item test driven development in practice whenever feasible, which isn't always the case
+\item data warehousing from multiple feeds, with experience using pandas and numpy to manipulate data
+\end{innerlist}
+\item[] \textit{Frontend}
+\begin{innerlist}
+\item interactive visualisations using d3.js, customised to the user's liking through javascript functions
+\item familiarity with manipulating HTML and CSS elements without having to use a library
+\item aided in development of a React.js web application to handle customer sign ups and display tailored usage charts
+\item very comfortable with using jQuery libraries and navigating DOM elements
+\item dabbled in user experience design and page layouts
+\end{innerlist}
+\end{outerlist}
+
+\blankline
+
+{\textbf{Devops}}
+\begin{innerlist}
+\item maintaining CI/CD pipeline to ensure sane and reproducible work, through Chef and Jenkins
+\item usage of Docker and containerized systems to keep infrastructure abstracted properly
+\item set up of HTTP networking and security through nginx
+\item experience with cloud/IaaS, namely AWS, Google Cloud, Digital Ocean, and Heroku
+\item build, automate, update and maintain infrastructure e.g. databases, redis, internal services, etc
+\end{innerlist}
+
+\blankline
+
+{\textbf{Data science}}
+\begin{innerlist}
+\item experienced in designing business driven data science platforms and applied AI solutions
+\item able to design experiments and conduct validation on hypothesis through optimisation of metrics
+\item developed predictive and explanatory models and machine learning algorithms to predict electricity demand and forecast consumption
+\item analysed data from various sources and propose insights and correlations that can be derived from the data
+\item always up to date with the most recent developments in machine learning by constantly reading papers and trying new algorithms
+\end{innerlist}
+
+\end{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%% End CV Document %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
