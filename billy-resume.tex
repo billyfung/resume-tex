@@ -1,4 +1,4 @@
-% last update: 8 September 2018 
+% last update: 12 Aug 21
 %%%%%%%%%%%%%%%%%%%%%%%%%%%% Document Setup %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Don't like 10pt? Try 11pt or 12pt
@@ -136,7 +136,7 @@
          \vspace{-.6\baselineskip}}
 
 % An environment IDENTICAL to outerlist that has better pre-list spacing
-% when used as the first thing in a \section 
+% when used as the first thing in a \section
 \newenvironment{lonelist}[1][\enskip\textbullet]%
         {\vspace{-\baselineskip}\begin{list}{#1}{%
         \setlength{\partopsep}{0pt}%
@@ -166,20 +166,20 @@
 % NOTE: Mind where the & separators and \\ breaks are in the following
 %       table.
 %
-% ALSO: \rcollength is the width of the right column of the table 
+% ALSO: \rcollength is the width of the right column of the table
 %       (adjust it to your liking; default is 1.85in).
 %
 \newlength{\rcollength}\setlength{\rcollength}{1.85in}%
 %
 \begin{tabular}[t]{@{}p{\textwidth-\rcollength}p{\rcollength}}
-\href{mailto:billy@billyfung.com}{billy@billyfung.com} +64 0204 130 7712\\				     
-							          
+\href{mailto:billy@billyfung.com}{billy@billyfung.com} +64 0204 130 7712\\
+
 \end{tabular}
 
 
 \section{Education}
 %
-\href{http://www.ubc.ca/}{\textbf{University of British Columbia}}, 
+\href{http://www.ubc.ca/}{\textbf{University of British Columbia}},
 Vancouver, BC, Canada
 \hfill  \textbf{2015}
 \begin{outerlist}
@@ -187,23 +187,40 @@ Vancouver, BC, Canada
 \item[] B.A.Sc. Engineering Physics, Mechatronics specialization
 \end{outerlist}
 
-\section{Skills} 
+\section{Skills}
 
-Data driven backend engineering, \texttt{Python}, \texttt{R}, \texttt{Javascript}, PostgreSQL, AWS, GCP
+MLOps, Data driven backend development, \texttt{Golang}, \texttt{Python}, \texttt{R}, \texttt{Javascript}, SQL, AWS, GCP
 
 \section{Experience}
 %
-\href{http://emhtrade.com/}{\textbf{emhTrade}}, Auckland, New Zealand. 
+\href{https://localcover.com//}{\textbf{LocalCover}}, Auckland, New Zealand.
+\begin{outerlist}
+	\item[] \textit{Backend Software Engineer}
+	\hfill  \textbf{April 2020 to Present}
+\begin{innerlist}
+    \item training transformer based machine learning models to classify products based on text input
+    \item researching state of the art text and image classification models
+    \item cleaning and iterating over data to maintain highest data quality
+    \item developing continuous delivery and automation pipelines for MLOps best practices
+    \item experimentation of identifying product brands based on images and text
+    \item serving machine learning model predictions APIs and building React frontend UI
+    \item building and supporting backend APIs in Golang, hosted on GCP
+\end{innerlist}
+\end{outerlist}
+
+\blankline
+
+\href{http://emhtrade.com/}{\textbf{emhTrade}}, Auckland, New Zealand.
 \begin{outerlist}
 	\item[] \textit{Lead Software Engineer}
 	\hfill  \textbf{March 2016 to April 2020}
 \begin{innerlist}
-    \item designed and developed a modular billing system to support complex electricity tariffs 
+    \item designed and developed a modular billing system to support complex electricity tariffs
     \item worked on cost reflective tariff design, used for optimising transmission pricing within the grid
     \item created supporting backend microservices for mobile app, including backend REST and GraphQL APIs
     \item developing and supporting Python services for smart grid operation, with peer to peer power sharing
-    \item building machine learning models to forecast electricity demand, and price 
-    \item experimentation of economic market design applied to localised smart grids 
+    \item building machine learning models to forecast electricity demand, and price
+    \item experimentation of economic market design applied to localised smart grids
     \item lead experimentation and analysis of load shifting of electricity demand response
     \item managing and maintaining continuous integration and deployment of applications to cloud servers
     \item automating internal trading tools to visualise risk and seek out arbitrage
@@ -212,14 +229,14 @@ Data driven backend engineering, \texttt{Python}, \texttt{R}, \texttt{Javascript
 
 \blankline
 
-\href{http://billyfung.com/dve/}{\textbf{DVe Technologies}}, Vancouver, Canada. 
+\href{http://billyfung.com/dve/}{\textbf{DVe Technologies}}, Vancouver, Canada.
 \begin{outerlist}
 	\item[] \textit{Lead Engineer}
 	\hfill  \textbf{December 2014 to November 2015}
 \begin{innerlist}
 	\item created and developed the initial hardware prototype for helmet mounted signalling system
-    \item developed and tested electrical circuits within hardware device 
-    \item aided in refining software algorithms to fine tune head tilt gesture 
+    \item developed and tested electrical circuits within hardware device
+    \item aided in refining software algorithms to fine tune head tilt gesture
     \item used Solidworks to design the mechanical enclosure for 3d printing and for plastic injection mold
     \item communicated with manufacturers and investors in attempts to bring product to market
 \end{innerlist}
@@ -227,14 +244,14 @@ Data driven backend engineering, \texttt{Python}, \texttt{R}, \texttt{Javascript
 
 \blankline
 
-{\textbf{Blackberry Limited}}, Ontario, Canada. 
+{\textbf{Blackberry Limited}}, Ontario, Canada.
 \begin{outerlist}
 	\item[] \textit{Reliability Systems Development Intern}
 	\hfill  \textbf{May 2011 to August 2012}
 \begin{innerlist}
 	\item developed and maintained systems for testing handheld devices involving highly accelerated lifecycle testing and failure mode analysis
     \item debugged board level electrical errors along with identifying hardware troubleshooting
-    \item qualified supplier manufacturing sites through statistical analysis  
+    \item qualified supplier manufacturing sites through statistical analysis
 \end{innerlist}
 \end{outerlist}
 
@@ -242,9 +259,9 @@ Data driven backend engineering, \texttt{Python}, \texttt{R}, \texttt{Javascript
 \section{Projects}
 \begin{innerlist}
 \item \href{http://www.tellmeabout.coffee}{coffee information website}
-\item \href{http://youtu.be/ek3iVSD02Gw}{automatic wireless irrigation system} based on moisture sensor readings 
+\item \href{http://youtu.be/ek3iVSD02Gw}{automatic wireless irrigation system} based on moisture sensor readings
 \item \href{http://plebcast.herokuapp.com/}{podcast hosting website}
-\item \href{http://youtu.be/H9JlHjWq-NA}{autonomous tape following race car} 
+\item \href{http://youtu.be/H9JlHjWq-NA}{autonomous tape following race car}
 \end{innerlist}
 
 %\section{Hobbies}
