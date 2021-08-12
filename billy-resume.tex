@@ -1,20 +1,4 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%% Simple LaTeX CV Template %%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% NOTE: If you find that it says                                     %%
-%%                                                                    %%
-%%                           1 of ??                                  %%
-%%                                                                    %%
-%% at the bottom of your first page, this means that the AUX file     %%
-%% was not available when you ran LaTeX on this source. Simply RERUN  %%
-%% LaTeX to get the ``??'' replaced with the number of the last page  %%
-%% of the document. The AUX file will be generated on the first run   %%
-%% of LaTeX and used on the second run to fill in all of the          %%
-%% references.                                                        %%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+% last update: 8 September 2018 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%% Document Setup %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Don't like 10pt? Try 11pt or 12pt
@@ -152,7 +136,7 @@
          \vspace{-.6\baselineskip}}
 
 % An environment IDENTICAL to outerlist that has better pre-list spacing
-% when used as the first thing in a \section
+% when used as the first thing in a \section 
 \newenvironment{lonelist}[1][\enskip\textbullet]%
         {\vspace{-\baselineskip}\begin{list}{#1}{%
         \setlength{\partopsep}{0pt}%
@@ -182,20 +166,20 @@
 % NOTE: Mind where the & separators and \\ breaks are in the following
 %       table.
 %
-% ALSO: \rcollength is the width of the right column of the table
+% ALSO: \rcollength is the width of the right column of the table 
 %       (adjust it to your liking; default is 1.85in).
 %
 \newlength{\rcollength}\setlength{\rcollength}{1.85in}%
 %
 \begin{tabular}[t]{@{}p{\textwidth-\rcollength}p{\rcollength}}
-\href{mailto:billy@billyfung.com}{billy@billyfung.com}\\
-
+\href{mailto:billy@billyfung.com}{billy@billyfung.com} +64 0204 130 7712\\				     
+							          
 \end{tabular}
 
 
 \section{Education}
 %
-\href{http://www.ubc.ca/}{\textbf{University of British Columbia}},
+\href{http://www.ubc.ca/}{\textbf{University of British Columbia}}, 
 Vancouver, BC, Canada
 \hfill  \textbf{2015}
 \begin{outerlist}
@@ -203,143 +187,70 @@ Vancouver, BC, Canada
 \item[] B.A.Sc. Engineering Physics, Mechatronics specialization
 \end{outerlist}
 
-\section{Skills}
-Python, Javascript, R, PostgreSQL, Docker, Ansible, AWS, GCP, GAMS
+\section{Skills} 
 
-%\section{Hobbies}
-%Rock climbing, hiking, bicycling, and photography
+Data driven backend engineering, \texttt{Python}, \texttt{R}, \texttt{Javascript}, PostgreSQL, AWS, GCP
 
 \section{Experience}
-\href{http://billyfung.com}{\textbf{Software Consultant}}, Worldwide.
+%
+\href{http://emhtrade.com/}{\textbf{emhTrade}}, Auckland, New Zealand. 
 \begin{outerlist}
-  \item[]
-	\hfill  \textbf{February 2016 to Present}
+	\item[] \textit{Lead Software Engineer}
+	\hfill  \textbf{March 2016 to April 2020}
 \begin{innerlist}
-	\item specialising in backend software development, assisting clients to build up data-driven web applications
-    \item building and supporting Python based web services for a peer to peer electricity retailer
-    \item developing trading and data analytics platform for wholesale electricity trading
-    \item using machine learning to build predictive models around electricity demand and consumption
-    \item managing and maintaining cloud based servers, namely within AWS and GCP
-    \item design, implementation, and deployment of mathematical optimisation models
+    \item designed and developed a modular billing system to support complex electricity tariffs 
+    \item worked on cost reflective tariff design, used for optimising transmission pricing within the grid
+    \item created supporting backend microservices for mobile app, including backend REST and GraphQL APIs
+    \item developing and supporting Python services for smart grid operation, with peer to peer power sharing
+    \item building machine learning models to forecast electricity demand, and price 
+    \item experimentation of economic market design applied to localised smart grids 
+    \item lead experimentation and analysis of load shifting of electricity demand response
+    \item managing and maintaining continuous integration and deployment of applications to cloud servers
+    \item automating internal trading tools to visualise risk and seek out arbitrage
 \end{innerlist}
 \end{outerlist}
 
 \blankline
 
-\href{http://billyfung.com/dve/}{\textbf{DVE Technologies}}, Vancouver, Canada.
+\href{http://billyfung.com/dve/}{\textbf{DVe Technologies}}, Vancouver, Canada. 
 \begin{outerlist}
-	\item[] \textit{Lead Engineer / Cofounder}
+	\item[] \textit{Lead Engineer}
 	\hfill  \textbf{December 2014 to November 2015}
 \begin{innerlist}
-	\item created and developed the company website, along with maintaining the cloud systems
-    \item developed and tested electrical circuits for the prototype device
-    \item aided in refining and optimising of software algorithms to fine tune head tilt gesture detection
-    \item used Solidworks to design the physical enclosure for 3d printing and for plastic injection mold
+	\item created and developed the initial hardware prototype for helmet mounted signalling system
+    \item developed and tested electrical circuits within hardware device 
+    \item aided in refining software algorithms to fine tune head tilt gesture 
+    \item used Solidworks to design the mechanical enclosure for 3d printing and for plastic injection mold
+    \item communicated with manufacturers and investors in attempts to bring product to market
 \end{innerlist}
 \end{outerlist}
 
 \blankline
 
-
-{\textbf{Blackberry Limited}}, Ontario, Canada.
+{\textbf{Blackberry Limited}}, Ontario, Canada. 
 \begin{outerlist}
 	\item[] \textit{Reliability Systems Development Intern}
 	\hfill  \textbf{May 2011 to August 2012}
 \begin{innerlist}
-	\item developed and maintained test stations for testing handheld devices involving highly accelerated lifecycle testing and failure mode analysis
+	\item developed and maintained systems for testing handheld devices involving highly accelerated lifecycle testing and failure mode analysis
     \item debugged board level electrical errors along with identifying hardware troubleshooting
-    \item performed electrical and mechanical testing of all components within mobile device and was involved in troubleshooting and reporting the results
-    \item qualified supplier manufacturing sites through statistical analysis
+    \item qualified supplier manufacturing sites through statistical analysis  
 \end{innerlist}
 \end{outerlist}
-
-\blankline
-
-%{\textbf{University of British Columbia, Mechanical Engineering}}, BC, Canada
-%\begin{outerlist}
-%	\item[] \textit{Complex Fluids Lab}
-%	\hfill  \textbf{October 2010 to April 2011}
-%\begin{innerlist}
-%	\item designed and machined an experimental apparatus for testing of two non-Newtonian fluids
-%	\item set up an electromechanical system in order to capture interactions between fluids, and automated data acquisition for further analysis.
-%\end{innerlist}
-%\end{outerlist}
-
-\blankline
-
-%{\textbf{Canfor Pulp and Paper Research and Development Coop}}, BC, Canada
-%\begin{outerlist}
-%	\item[] \textit{Research and Development Lab Technician}
-%	\hfill  \textbf{January 2010 to April 2010}
-%\begin{innerlist}
-%	\item conducted analysis of testing destructive and non-destructive handsheet properties, fibre properties such as fibre length and coarseness, elasticity, viscosity and conductivity
-% \item  monitored the pulp properties from Canfor's pulp lines by simulating the paper-making process,  and testing according to TAPPI standard procedures.
-%    \item worked to automate the data entry process along with experimental testing automation
-%\end{innerlist}
-%\end{outerlist}
 
 
 \section{Projects}
 \begin{innerlist}
 \item \href{http://www.tellmeabout.coffee}{coffee information website}
-\item \href{http://youtu.be/ek3iVSD02Gw}{automatic wireless irrigation system} based on moisture sensor readings
-\item \href{http://youtu.be/H9JlHjWq-NA}{autonomous tape following race car}
-\item \href{http://youtu.be/ddSh_XTtdA0}{automated bicycle turn signal and brake light system}
+\item \href{http://youtu.be/ek3iVSD02Gw}{automatic wireless irrigation system} based on moisture sensor readings 
+\item \href{http://plebcast.herokuapp.com/}{podcast hosting website}
+\item \href{http://youtu.be/H9JlHjWq-NA}{autonomous tape following race car} 
 \end{innerlist}
 
-\section{Technical Details}
-{\textbf{Database}}
-\begin{innerlist}
-\item extensive experience in scraping data from websites and parsing the data to be stored within a SQL or noSQL database
-\item design and maintaining of PostgreSQL databases, including optimisation and administration roles
-\item very comfortable using raw SQL to query data, or using an ORM wrapper
-\item involved with database design using event triggers, jsonb datatypes, GIN indexing, materialized views, upserting and foreign data wrappers
-\end{innerlist}
+%\section{Hobbies}
 
-\blankline
-
-{\textbf{Web Applications}}
-\begin{outerlist}
-\item[] \textit{Backend}
-\begin{innerlist}
-\item built multiple web applications using the Flask framework, along with appropriate framework extensions mainly for internal admin usage
-\item packages often used are SQLAlchemy, pytest, gunicorn, flask-admin, WTForms
-\item familiarity with a more full featured framework as well, having used Django to build a podcast hosting web application
-\item spent time building REST APIs to serve to frontend frameworks to display visualisations like customised internal analytics dashboard and reporting
-\item test driven development in practice whenever feasible, which isn't always the case
-\item data warehousing from multiple feeds, with experience using pandas and numpy to manipulate data
-\end{innerlist}
-\item[] \textit{Frontend}
-\begin{innerlist}
-\item interactive visualisations using d3.js, customised to the user's liking through javascript functions
-\item familiarity with manipulating HTML and CSS elements without having to use a library
-\item aided in development of a React.js web application to handle customer sign ups and display tailored usage charts
-\item very comfortable with using jQuery libraries and navigating DOM elements
-\item dabbled in user experience design and page layouts
-\end{innerlist}
-\end{outerlist}
-
-\blankline
-
-{\textbf{Devops}}
-\begin{innerlist}
-\item maintaining CI/CD pipeline to ensure sane and reproducible work, through Chef and Jenkins
-\item usage of Docker and containerized systems to keep infrastructure abstracted properly
-\item set up of HTTP networking and security through nginx
-\item experience with cloud/IaaS, namely AWS, Google Cloud, Digital Ocean, and Heroku
-\item build, automate, update and maintain infrastructure e.g. databases, redis, internal services, etc
-\end{innerlist}
-
-\blankline
-
-{\textbf{Data science}}
-\begin{innerlist}
-\item experienced in designing business driven data science platforms and applied AI solutions
-\item able to design experiments and conduct validation on hypothesis through optimisation of metrics
-\item developed predictive and explanatory models and machine learning algorithms to predict electricity demand and forecast consumption
-\item analysed data from various sources and propose insights and correlations that can be derived from the data
-\item always up to date with the most recent developments in machine learning by constantly reading papers and trying new algorithms
-\end{innerlist}
+%Rock climbing, hiking, bicycling, and photography
 
 \end{document}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%% End CV Document %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
